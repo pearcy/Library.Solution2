@@ -1,0 +1,22 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Library.Models.Author
+
+<h1>Edit @Model.AuthorName's Info</h1>
+
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.AuthorId)
+
+  @Html.LabelFor(model => model.AuthorName)
+  @Html.EditorFor(model => model.AuthorName)
+
+  <input type="submit" value="Save" />
+}
+
+<p>@Html.ActionLink("Return to Details Page", "Details", new { id = Model.AuthorId })</p>
+<p>@Html.ActionLink("Return to Main Page", "Index", "Home")</p>
+
+<p>@Html.ActionLink("Back to Authors", "Index")</p>

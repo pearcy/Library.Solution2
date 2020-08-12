@@ -1,0 +1,27 @@
+@{
+  Layout = "_Layout";
+}
+
+<h1>Add New Book:</h1>
+<p>Please fill in the following form:</p>
+@model Library.Models.Book
+
+@using (Html.BeginForm())
+{
+  @Html.Label("Book Title: ")
+  @Html.TextBoxFor(model => model.BookTitle)<br><br>
+  
+  @Html.Label("Book Genre: ")
+  @Html.TextBoxFor(model => model.BookGenre)<br><br>
+
+  @Html.Label("Number of copies available: ")
+  @Html.TextBoxFor(model => model.CopyCount, new { type="number", min="1" })<br><br>
+
+  @Html.Label("Create a new Author to add to this book: ")
+  @Html.TextBox("AuthorName")<br><br>
+
+  @Html.Label("Author")
+  @Html.DropDownList("AuthorId")<br><br>
+
+  <input type="submit" class="btn btn-primary">
+}

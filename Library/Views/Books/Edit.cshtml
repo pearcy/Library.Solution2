@@ -1,0 +1,21 @@
+@model Library.Models.Book
+
+<h1>Edit Book Info</h1>
+
+<h2>@Html.DisplayFor(model => model.BookTitle)</h2>
+
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.BookId)
+
+  @Html.LabelFor(model => model.BookTitle)
+  @Html.EditorFor(model => model.BookTitle)<br><br>
+
+  @Html.Label("Edit Author: ")
+  @Html.TextBox("AuthorName")<br><br>
+
+  @Html.Label("Author")
+  @Html.DropDownList("AuthorId")<br><br>
+
+  <input type="submit" value="Save" />
+}

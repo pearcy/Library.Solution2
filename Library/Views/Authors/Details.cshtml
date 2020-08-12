@@ -1,0 +1,23 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Library.Models.Author
+
+<h1>@Model.AuthorName's Details</h1>
+
+@if (Model.Books.Count == 0)
+{
+  <p>@Model.AuthorName has no publications</p>
+}
+<ul>
+  @foreach (var book in Model.Books)
+  {
+    <li>@book.Book.BookTitle</li>
+  }
+</ul>
+
+<p>@Html.ActionLink("Edit Author Info", "Edit", new { id = Model.AuthorId })</p>
+<p>@Html.ActionLink("Delete Author from Catalogue", "Delete", new { id = Model.AuthorId })</p>
+<p>@Html.ActionLink("View All Authors", "Index")</p>
+<p>@Html.ActionLink("Home", "Index", "Home")</p>

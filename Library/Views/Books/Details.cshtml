@@ -1,0 +1,22 @@
+@model Library.Models.Book
+
+<h1>Book Details</h1>
+
+<h2>@Html.DisplayNameFor(model => model.BookTitle): @Html.DisplayFor(model => model.BookTitle)</h2>
+<ul>
+  @foreach (var author in Model.Authors)
+  {
+    <li>@author.Author.AuthorName</li>
+  }
+</ul>
+
+<h3>@Html.DisplayNameFor(model => model.BookGenre): @Html.DisplayFor(model => model.BookGenre)</h3>
+
+<p>@Html.Label("Copies Available in Library"): @Model.CopiesAvailable()</p>
+
+@* @*If user profile is Librarian, show list of patrons who have checked out the book *@
+
+<p>@Html.ActionLink("Edit Book Info", "Edit", new { id = Model.BookId })</p>
+<p>@Html.ActionLink("Delete Book from Catalogue", "Delete", new { id = Model.BookId })</p>
+<p>@Html.ActionLink("View All Books", "Index")</p>
+<p>@Html.ActionLink("Home", "Index", "Home")</p>

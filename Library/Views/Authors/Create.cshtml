@@ -1,0 +1,17 @@
+@{
+  Layout = "_Layout";
+}
+
+<h1>Add New Author:</h1>
+<p>Please fill in the following form:</p>
+@model Library.Models.Author
+
+@using (Html.BeginForm())
+{
+  @Html.Label("Name: ")
+  @Html.TextBoxFor(model => model.AuthorName)<br><br>
+  <input type="submit" class="btn btn-primary">
+}
+<p>@Html.ActionLink("Show All Authors", "Index")</p>
+<p>@Html.ActionLink("Return to Main Page", "Index", "Home")</p>
+
