@@ -10,8 +10,8 @@
 <hr />
 @using (Html.BeginForm("Register", "Account", FormMethod.Post))
 {
-    @Html.Label("Your Name: ")
-    @Html.TextBox("YourName") <br><br>
+    @Html.LabelFor(model => model.Name)
+    @Html.TextBoxFor(model => model.Name) <br><br>
 
     @Html.LabelFor(user => user.Email)
     @Html.TextBoxFor(user=> user.Email) <br><br>

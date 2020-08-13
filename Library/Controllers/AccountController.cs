@@ -44,9 +44,14 @@ namespace Library.Controllers
       
       if (result.Succeeded)
       {
-        Patron NewPatron = new Patron();
-        NewPatron.PatronName = YourName;
-        NewPatron.User = result;
+        // var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+        // var currentUser = await _userManager.FindByIdAsync(userId);
+        // Patron NewPatron = new Patron();
+        // NewPatron.PatronName = YourName;
+        // NewPatron.User = user;
+        Patron patron = new Patron() { PatronName = YourName, User = user };
+        _db.Patrons.Add(patron);
+        _db.SaveChanges();
         return RedirectToAction("Index");
       }
       else
@@ -82,3 +87,4 @@ namespace Library.Controllers
     }
   }
 }
+

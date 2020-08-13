@@ -15,7 +15,6 @@
   @foreach (Book book in Model)
   {
     <li>@Html.ActionLink($"{book.BookTitle}", "Details", new { id = book.BookId })</li>
-    <button>
   }
 </ul>
 
